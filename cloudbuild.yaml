@@ -22,4 +22,4 @@ substitutions:
   _LOCATION: us-central1
   _DATASET: healthcare-api-dicom-fuse-test
   _MAX_STUDY_STORE: retrieve-study-past-max-studies-limit
-  _15001ND_STUDY: 11432
+  _15001ND_STUDY: '11432'
