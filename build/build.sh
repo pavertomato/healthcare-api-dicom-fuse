@@ -86,6 +86,7 @@ check_exit_code "${rm_result}" \
 
 max_study_path="/workspace/${mount_folder}/${MAX_STUDY_STORE}/"
 studies_in_store=$(ls $max_study_path| wc -l)
+
 if [[ "${studies_in_store}" != 15000 ]]; then
   echo "store don't have enough studies for test"
   exit 1
@@ -96,8 +97,6 @@ if [[ "$(ls "${max_study_path}" | grep "${LAST_STUDY} | wc -l)" != 0 ]]; then
 fi
 
 if [[ ! -d "${max_study_path}${LAST_STUDY}" ]]; then
-    echo "can't navigate to 15001nd study"
-    exit 1
+  echo "can't navigate to 15001nd study"
+  exit 1
 fi
-
-
