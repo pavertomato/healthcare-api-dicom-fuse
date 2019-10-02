@@ -86,12 +86,13 @@ if [[ "${studies_in_store}" != 0 ]]; then
   echo "store don't have enouth studies for test"
   exit 1
 fi
-if [[ "$(ls | grep "study" | wc -l)" != 0 ]]; then
-  echo "store don't have enough studies for test"
+if [[ "$(ls /workspace/${mount_folder}/15000studies | grep "11432" | wc -l)" != 0 ]]; then
+  echo "15001nd study shoudnt be in folder initially"
   exit 1
 fi
 
-if [[ -d "/workspace/${mount_folder}/${dicom_store_name}/" ]]; then
-    break
-  fi
+if [[ ! -d "/workspace/${mount_folder}/15000studies/11432" ]]; then
+    echo "can't navigate to 15001nd study"
+    exit 1
+fi
 
