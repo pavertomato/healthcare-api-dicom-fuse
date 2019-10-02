@@ -91,7 +91,7 @@ if [[ "${studies_in_store}" != 15000 ]]; then
   echo "store don't have enough studies for test"
   exit 1
 fi
-if [[ "$(ls "${max_study_path}" | grep "${LAST_STUDY} | wc -l)" != 0 ]]; then
+if [[ "$(ls ${max_study_path} | grep ${LAST_STUDY} | wc -l)" != 0 ]]; then
   echo "15001nd study shouldn't be in folder initially"
   exit 1
 fi
