@@ -81,13 +81,13 @@ check_exit_code "${diff_result}" \
 check_exit_code "${rm_result}" \
   "Removing 111.dcm instance in ${dicom_store_name} DICOM Store failed!"
 
-studies_in_store=$(ll /workspace/${mount_folder}/15000studies| wc -l)
+studies_in_store=$(ls /workspace/${mount_folder}/15000studies| wc -l)
 if [[ "${studies_in_store}" != 0 ]]; then
   echo "store don't have enouth studies for test"
   exit 1
 fi
-if [[ "$(ll | grep "study" | wc -l)" != 0 ]]; then
-  echo "store don't have enouth studies for test"
+if [[ "$(ls | grep "study" | wc -l)" != 0 ]]; then
+  echo "store don't have enough studies for test"
   exit 1
 fi
 
