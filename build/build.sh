@@ -95,7 +95,7 @@ if [[ "$(ls "${max_study_path}" | grep "${LAST_STUDY} | wc -l)" != 0 ]]; then
   exit 1
 fi
 
-if [[ ! -d "${max_study_path}${15001ND_STUDY}" ]]; then
+if [[ ! -d "${max_study_path}${LAST_STUDY}" ]]; then
     echo "can't navigate to 15001nd study"
     exit 1
 fi
