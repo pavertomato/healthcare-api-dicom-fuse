@@ -14,6 +14,7 @@ steps:
   - '${_LOCATION}'
   - '${_DATASET}'
   - '${_MAX_STUDY_STORE}'
+  - '${_15001ND_STUDY}'
   timeout: 600s
 
 substitutions:
