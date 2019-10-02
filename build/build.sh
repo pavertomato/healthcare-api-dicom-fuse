@@ -18,8 +18,8 @@ readonly STAGE="${1}"
 readonly PROJECT="${2}"
 readonly LOCATION="${3}"
 readonly DATASET="${4}"
-readonly MAX_STUDY_STORE="${5}
-readonly LAST_STUDY="${6}
+readonly MAX_STUDY_STORE="${5}"
+readonly LAST_STUDY="${6}"
 
 # Create unique DICOM Store name
 readonly dicom_store_name="$(openssl rand -hex 12)"
