@@ -18,6 +18,9 @@ readonly STAGE="${1}"
 readonly PROJECT="${2}"
 readonly LOCATION="${3}"
 readonly DATASET="${4}"
+readonly MAX_STUDY_STORE="${5}
+readonly 15001ND_STUDY="${6}
+
 # Create unique DICOM Store name
 readonly dicom_store_name="$(openssl rand -hex 12)"
 # Create a folder to mount DICOMFuse
@@ -81,18 +84,20 @@ check_exit_code "${diff_result}" \
 check_exit_code "${rm_result}" \
   "Removing 111.dcm instance in ${dicom_store_name} DICOM Store failed!"
 
-studies_in_store=$(ls /workspace/${mount_folder}/15000studies| wc -l)
+max_study_path="/workspace/${mount_folder}/${MAX_STUDY_STORE}/"
+studies_in_store=$(ls $max_study_path| wc -l)
 if [[ "${studies_in_store}" != 15000 ]]; then
   echo "store don't have enough studies for test"
   exit 1
 fi
-if [[ "$(ls /workspace/${mount_folder}/15000studies | grep "11432" | wc -l)" != 0 ]]; then
-  echo "15001nd study shoudnt be in folder initially"
+if [[ "$(ls "${max_study_path}" | grep "${15001ND_STUDY} | wc -l)" != 0 ]]; then
+  echo "15001nd study shouldn't be in folder initially"
   exit 1
 fi
-
-if [[ ! -d "/workspace/${mount_folder}/15000studies/11432" ]]; then
+echo "${max_study_path}${15001ND_STUDY}"
+if [[ ! -d "${max_study_path}${15001ND_STUDY}" ]]; then
     echo "can't navigate to 15001nd study"
     exit 1
 fi
+
 
