@@ -82,8 +82,8 @@ check_exit_code "${rm_result}" \
   "Removing 111.dcm instance in ${dicom_store_name} DICOM Store failed!"
 
 studies_in_store=$(ls /workspace/${mount_folder}/15000studies| wc -l)
-if [[ "${studies_in_store}" != 0 ]]; then
-  echo "store don't have enouth studies for test"
+if [[ "${studies_in_store}" != 15000 ]]; then
+  echo "store don't have enough studies for test"
   exit 1
 fi
 if [[ "$(ls /workspace/${mount_folder}/15000studies | grep "11432" | wc -l)" != 0 ]]; then
